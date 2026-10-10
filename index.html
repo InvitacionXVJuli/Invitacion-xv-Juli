@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,268 +8,348 @@
 
 <title>XV Julieta</title>
 
+https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400&display=swap
+
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
 
-    font-family: "Cormorant Garamond", serif;
+font-family:'Montserrat',sans-serif;
+background:#f8fbff;
+color:white;
+overflow-x:hidden;
 
-    background:#f8f6f7;
-
-    color:#3f3f3f;
-
-    overflow-x:hidden;
 }
 
 section{
 
-    min-height:100vh;
+min-height:100vh;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
 
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:80px 20px;
 }
+
+h1,h2{
+
+font-family:'Cormorant Garamond',serif;
+
+}
+
+/* SAVE THE DATE */
 
 .hero{
 
-    background:
-    linear-gradient(
-        rgba(255,255,255,.25),
-        rgba(255,255,255,.25)
-    ),
-    url("save-the-date.jpg");
+background:url('save-date.jpg');
+background-size:cover;
+background-position:center;
 
-    background-size:cover;
-    background-position:center;
+}
 
-    color:#ffffff;
+.hero::before{
+
+content:'';
+position:absolute;
+inset:0;
+background:rgba(255,255,255,.15);
+
+}
+
+.hero-content{
+
+position:relative;
+z-index:2;
+
 }
 
 .hero h1{
 
-    font-size:70px;
+font-size:7rem;
+letter-spacing:8px;
+font-weight:300;
+color:#333;
 
-    letter-spacing:10px;
-
-    font-weight:300;
 }
 
-.hero h2{
+.hero .fecha{
 
-    font-size:30px;
+font-size:2.5rem;
+margin-top:40px;
+color:#444;
 
-    letter-spacing:6px;
-
-    margin:10px 0;
 }
 
-.hero p{
+.hero .nombre{
 
-    font-size:24px;
+font-size:2rem;
+letter-spacing:10px;
+margin-top:60px;
+color:#444;
 
-    letter-spacing:5px;
 }
 
-.scroll{
+/* COUNTDOWN */
 
-    margin-top:50px;
+.countdown{
 
-    font-size:14px;
+background:linear-gradient(
+180deg,
+#dcebfa,
+#bfdcf6
+);
 
-    opacity:.9;
+overflow:hidden;
 
-    letter-spacing:3px;
 }
 
-.titulo{
+.particles{
 
-    font-size:48px;
+position:absolute;
+inset:0;
 
-    margin-bottom:25px;
+background-image:
+radial-gradient(white 1px, transparent 1px);
 
-    color:#7a1520;
+background-size:35px 35px;
+
+animation:float 40s linear infinite;
+
+opacity:.7;
+
 }
 
-.subtitulo{
+@keyframes float{
 
-    max-width:700px;
-
-    font-size:22px;
-
-    line-height:1.8;
+from{
+transform:translateY(0);
 }
 
-.contador{
-
-    font-size:90px;
-
-    color:#7a1520;
-
-    font-weight:600;
+to{
+transform:translateY(-200px);
 }
 
-.card{
-
-    width:min(900px,95%);
-
-    background:white;
-
-    border-radius:30px;
-
-    padding:50px;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.05);
 }
 
-.carrusel{
+.countdown-content{
 
-    display:flex;
+position:relative;
+z-index:10;
 
-    gap:20px;
-
-    overflow-x:auto;
-
-    width:100%;
-
-    margin-top:40px;
-
-    padding-bottom:10px;
 }
 
-.foto{
+.countdown h2{
 
-    flex:0 0 auto;
+font-size:1.4rem;
+letter-spacing:6px;
+margin-bottom:20px;
 
-    width:250px;
-
-    height:350px;
-
-    border-radius:25px;
-
-    background:#e7e7e7;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:#777;
-
-    font-size:18px;
 }
 
-.mini{
+#days{
 
-    margin-top:20px;
+font-size:9rem;
+font-family:'Cormorant Garamond',serif;
+font-weight:500;
 
-    color:#666;
-
-    font-size:20px;
 }
 
-.boton{
+.label{
 
-    display:inline-block;
+font-size:1rem;
+letter-spacing:5px;
 
-    margin-top:30px;
-
-    padding:15px 30px;
-
-    background:#7a1520;
-
-    color:white;
-
-    text-decoration:none;
-
-    border-radius:40px;
 }
 
-.formulario{
+/* HISTORIA */
 
-    display:flex;
+.historia{
 
-    flex-direction:column;
+background:#eef6ff;
+color:#333;
+flex-direction:column;
 
-    gap:15px;
-
-    width:min(500px,100%);
 }
 
-input,
-select,
-textarea{
+.historia h2{
 
-    padding:15px;
+font-size:4rem;
+margin-bottom:40px;
 
-    border-radius:12px;
-
-    border:1px solid #ddd;
-
-    font-size:16px;
 }
 
-textarea{
+.slider{
 
-    min-height:100px;
+display:flex;
+align-items:center;
+gap:20px;
+
 }
 
-.footer{
+.slider img{
 
-    background:white;
+width:320px;
+height:480px;
+
+object-fit:cover;
+
+border-radius:25px;
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.15);
+
 }
+
+.slider button{
+
+border:none;
+background:white;
+width:60px;
+height:60px;
+border-radius:50%;
+cursor:pointer;
+font-size:25px;
+
+}
+
+.dots{
+
+margin-top:30px;
+
+}
+
+.dot{
+
+width:12px;
+height:12px;
+background:#b4c7dd;
+
+display:inline-block;
+
+border-radius:50%;
+margin:5px;
+
+}
+
+.active{
+
+background:#7fa8d0;
+
+}
+
+/* BLOQUES CON IMAGEN */
+
+.image-section{
+
+background-size:cover;
+background-position:center;
+
+}
+
+.image-section::before{
+
+content:'';
+
+position:absolute;
+inset:0;
+
+background:rgba(0,0,0,.35);
+
+}
+
+.image-content{
+
+position:relative;
+z-index:2;
+
+}
+
+.image-content h2{
+
+font-size:4rem;
+
+}
+
+.image-content p{
+
+margin-top:20px;
+font-size:1.2rem;
+
+}
+
+.btn{
+
+display:inline-block;
+
+margin-top:30px;
+
+padding:14px 32px;
+
+background:white;
+
+color:#222;
+
+text-decoration:none;
+
+border-radius:30px;
+
+font-size:.9rem;
+
+letter-spacing:2px;
+
+}
+
+/* RESPONSIVE */
 
 @media(max-width:768px){
 
-    .hero h1{
+.hero h1{
 
-        font-size:45px;
-    }
+font-size:4rem;
 
-    .hero h2{
+}
 
-        font-size:22px;
-    }
+.hero .fecha{
 
-    .contador{
+font-size:1.6rem;
 
-        font-size:60px;
-    }
+}
 
-    .titulo{
+#days{
 
-        font-size:36px;
-    }
+font-size:6rem;
 
-    .subtitulo{
+}
 
-        font-size:18px;
-    }
+.historia h2{
 
-    .foto{
+font-size:2.6rem;
 
-        width:220px;
-        height:300px;
-    }
+}
+
+.slider img{
+
+width:260px;
+height:390px;
+
+}
+
+.image-content h2{
+
+font-size:2.5rem;
+
+}
 
 }
 
@@ -284,332 +363,235 @@ textarea{
 
 <section class="hero">
 
-    <h1>SAVE</h1>
+<div class="hero-content">
 
-    <h2>THE DATE</h2>
+<h1>SAVE<br>THE DATE</h1>
 
-    <p>27 · 12 · 26</p>
+<div class="fecha">
+27 · 12 · 26
+</div>
 
-    <br>
+<div class="nombre">
+JULIETA
+</div>
 
-    <h2>JULIETA</h2>
-
-    <div class="scroll">
-
-        DESLIZÁ PARA DESCUBRIR MÁS ↓
-
-    </div>
+</div>
 
 </section>
 
 <!-- CUENTA REGRESIVA -->
 
-<section>
+<section class="countdown">
 
-    <h2 class="titulo">
+<div class="particles"></div>
 
-        Camino hacia un día único
+<div class="countdown-content">
 
-    </h2>
+<h2>
+CAMINO HACIA UN DÍA ÚNICO
+</h2>
 
-    <div id="dias" class="contador">
+<div id="days">
+0
+</div>
 
-        0
+<div class="label">
+DÍAS
+</div>
 
-    </div>
-
-    <div class="subtitulo">
-
-        Cada día nos acerca un poco más
-        a celebrar juntos este momento tan especial.
-
-    </div>
+</div>
 
 </section>
 
 <!-- HISTORIA -->
 
-<section>
+<section class="historia">
 
-    <h2 class="titulo">
+<h2>
+UN RECORRIDO ESPECIAL
+</h2>
 
-        Un recorrido muy especial
+<div class="slider">
 
-    </h2>
+<button onclick="prevSlide()">
+❮
+</button>
 
-    <div class="subtitulo">
+historia1.jpg
 
-        Cada recuerdo forma parte del camino
-        que me trajo hasta este día.
+<button onclick="nextSlide()">
+❯
+</button>
 
-    </div>
+</div>
 
-    <div class="carrusel">
+<div class="dots">
 
-        <div class="foto">Foto infancia</div>
+<span class="dot active"></span>
+<span class="dot"></span>
 
-        <div class="foto">Foto niñez</div>
-
-        <div class="foto">Foto adolescencia</div>
-
-        <div class="foto">Foto actual</div>
-
-        <div class="foto">Foto Book XV</div>
-
-    </div>
+</div>
 
 </section>
 
 <!-- FECHA -->
 
-<section>
+<section
+class="image-section"
+style="background-image:url('save-date.jpg')">
 
-    <div class="card">
+<div class="image-content">
 
-        <h2 class="titulo">
+<h2>
+27 DICIEMBRE 2026
+</h2>
 
-            Cuándo
+<p>
+DOMINGO
+</p>
 
-        </h2>
-
-        <div class="subtitulo">
-
-            Domingo
-
-            <br><br>
-
-            27 de diciembre de 2026
-
-            <br><br>
-
-            13:00 hs
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 <!-- LUGAR -->
 
-<section>
+<section
+class="image-section"
+style="background-image:url('salon.jpg')">
 
-    <div class="card">
+<div class="image-content">
 
-        <h2 class="titulo">
+<h2>
+LA CELEBRACIÓN
+</h2>
 
-            Dónde
+<p>
+Próximamente más información
+</p>
 
-        </h2>
+#
+VER UBICACIÓN
+</a>
 
-        <div class="subtitulo">
-
-            Salón XXXXX
-
-            <br><br>
-
-            Dirección completa
-
-        </div>
-
-        #
-
-            📍 Cómo llegar
-
-        </a>
-
-    </div>
+</div>
 
 </section>
 
 <!-- DRESS CODE -->
 
-<section>
+<section
+class="image-section"
+style="background-image:url('dresscode.jpg')">
 
-    <div class="card">
+<div class="image-content">
 
-        <h2 class="titulo">
+<h2>
+DRESS CODE
+</h2>
 
-            Dress Code
+<p>
+ELEGANTE
+</p>
 
-        </h2>
-
-        <div class="subtitulo">
-
-            Elegante
-
-        </div>
-
-        <div class="mini">
-
-            Para acompañar la estética elegida para este día,
-            agradecemos evitar prendas en tonos celestes.
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- REGALOS -->
-
-<section>
-
-    <div class="card">
-
-        <h2 class="titulo">
-
-            Regalos
-
-        </h2>
-
-        <div class="subtitulo">
-
-            Tu presencia es el mejor regalo.
-
-            <br><br>
-
-            Si deseás acompañarme con un obsequio
-            para esta nueva etapa,
-            encontrarás aquí la información.
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 <!-- RSVP -->
 
-<section>
+<section
+class="image-section"
+style="background-image:url('rsvp.jpg')">
 
-    <div class="card">
+<div class="image-content">
 
-        <h2 class="titulo">
+<h2>
+CONFIRMACIÓN DE ASISTENCIA
+</h2>
 
-            Confirmación de asistencia
+#
+CONFIRMAR
+</a>
 
-        </h2>
-
-        <br>
-
-        <div class="formulario">
-
-            <input placeholder="Nombre y Apellido">
-
-            <select>
-
-                <option>¿Asistís?</option>
-                <option>Sí</option>
-                <option>No</option>
-
-            </select>
-
-            <input placeholder="Cantidad de asistentes">
-
-            #
-
-                Confirmar asistencia
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- RESTRICCIONES -->
-
-<section>
-
-    <div class="card">
-
-        <h2 class="titulo">
-
-            Restricciones alimentarias
-
-        </h2>
-
-        <br>
-
-        <div class="formulario">
-
-            <select>
-
-                <option>Ninguna</option>
-                <option>Vegetariano</option>
-                <option>Vegano</option>
-                <option>Celíaco</option>
-                <option>Otra</option>
-
-            </select>
-
-            <textarea placeholder="Comentarios"></textarea>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- GRACIAS -->
-
-<section class="footer">
-
-    <h2 class="titulo">
-
-        Gracias
-
-    </h2>
-
-    <div class="subtitulo">
-
-        Gracias por acompañarme
-        en este momento tan especial.
-
-        <br><br>
-
-        Los espero para celebrarlo juntos.
-
-        <br><br>
-
-        Julieta
-
-    </div>
+</div>
 
 </section>
 
 <script>
 
-const fechaEvento =
-new Date("2026-12-27T13:00:00");
+/* CUENTA REGRESIVA */
 
-function actualizarContador(){
+const eventDate = new Date(
+"December 27, 2026 21:00:00"
+).getTime();
 
-    const hoy =
-    new Date();
+setInterval(()=>{
 
-    const diferencia =
-    fechaEvento - hoy;
+const now = new Date().getTime();
 
-    const dias =
-    Math.ceil(
-        diferencia /
-        (1000*60*60*24)
-    );
+const distance = eventDate - now;
 
-    document
-    .getElementById("dias")
-    .innerHTML =
-    dias;
+const days = Math.floor(
+distance /
+(1000*60*60*24)
+);
+
+document.getElementById(
+"days"
+).innerHTML = days;
+
+},1000);
+
+/* SLIDER */
+
+const photos = [
+
+"historia1.jpg",
+"historia2.jpg"
+
+];
+
+let current = 0;
+
+function showSlide(){
+
+document.getElementById(
+"sliderImage"
+).src = photos[current];
+
+document.querySelectorAll('.dot')
+.forEach(dot=>dot.classList.remove('active'));
+
+document.querySelectorAll('.dot')
+[current]
+.classList.add('active');
 
 }
 
-actualizarContador();
+function nextSlide(){
+
+current++;
+
+if(current >= photos.length)
+current = 0;
+
+showSlide();
+
+}
+
+function prevSlide(){
+
+current--;
+
+if(current < 0)
+current = photos.length - 1;
+
+showSlide();
+
+}
 
 </script>
 
 </body>
-
 </html>
