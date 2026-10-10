@@ -374,4 +374,235 @@ border-radius:40px;
 
 /* MOBILE */
 
-@media(max-
+@media(max-width:768px){
+
+.hero h1{
+font-size:4rem;
+}
+
+#days{
+font-size:6rem;
+}
+
+.historia h2{
+font-size:2.5rem;
+}
+
+.slider img{
+width:260px;
+height:400px;
+}
+
+.content h2{
+font-size:2.4rem;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>SAVE<br>THE DATE</h1>
+
+<div class="fecha">
+27 · 12 · 26
+</div>
+
+<div class="nombre">
+JULIETA
+</div>
+
+</div>
+
+</section>
+
+<section class="countdown">
+
+<div class="glitter-back">
+<span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="countdown-content">
+
+<div class="countdown-title">
+CAMINO HACIA UN DÍA ÚNICO
+</div>
+
+<div id="days">0</div>
+
+<div class="days-label">
+DÍAS
+</div>
+
+</div>
+
+<div class="glitter-front">
+<span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+</section>
+
+<section class="historia">
+
+<h2>UN RECORRIDO ESPECIAL</h2>
+
+<div class="slider">
+
+<button onclick="prevSlide()">❮</button>
+
+img/historia1.jpg
+
+<button onclick="nextSlide()">❯</button>
+
+</div>
+
+<div class="dots">
+
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+
+</div>
+
+</section>
+
+<section
+class="image-section"
+style="background-image:url('img/save-date.jpeg')">
+
+<div class="content">
+
+<h2>27 DICIEMBRE 2026</h2>
+
+<p>DOMINGO</p>
+
+</div>
+
+</section>
+
+<section
+class="image-section"
+style="background-image:url('img/salon.jpg')">
+
+<div class="content">
+
+<h2>LA CELEBRACIÓN</h2>
+
+<p>PRÓXIMAMENTE MÁS INFORMACIÓN</p>
+
+#
+VER UBICACIÓN
+</a>
+
+</div>
+
+</section>
+
+<section
+class="image-section"
+style="background-image:url('img/dresscode.jpg')">
+
+<div class="content">
+
+<h2>DRESS CODE</h2>
+
+<p>ELEGANTE</p>
+
+</div>
+
+</section>
+
+<section
+class="image-section"
+style="background-image:url('img/rsvp.jpg')">
+
+<div class="content">
+
+<h2>CONFIRMACIÓN DE ASISTENCIA</h2>
+
+#
+CONFIRMAR
+</a>
+
+</div>
+
+</section>
+
+<script>
+
+const eventDate =
+new Date("December 27, 2026 21:00:00").getTime();
+
+setInterval(() => {
+
+const now = new Date().getTime();
+
+const distance = eventDate - now;
+
+const days = Math.floor(
+distance / (1000*60*60*24)
+);
+
+document.getElementById("days").innerHTML = days;
+
+},1000);
+
+const photos = [
+
+"img/historia1.jpg",
+"img/historia2.jpg",
+"img/historia3.jpg"
+
+];
+
+let current = 0;
+
+function showSlide(){
+
+document.getElementById("sliderImage").src =
+photos[current];
+
+document.querySelectorAll('.dot')
+.forEach(dot => dot.classList.remove('active'));
+
+document.querySelectorAll('.dot')
+[current]
+.classList.add('active');
+
+}
+
+function nextSlide(){
+
+current++;
+
+if(current >= photos.length){
+current = 0;
+}
+
+showSlide();
+
+}
+
+function prevSlide(){
+
+current--;
+
+if(current < 0){
+current = photos.length - 1;
+}
+
+showSlide();
+
+}
+
+</script>
+
+</body>
+</html>
