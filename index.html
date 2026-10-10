@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
 <meta charset="UTF-8">
@@ -8,7 +7,7 @@
 
 <title>XV Julieta</title>
 
-https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400&display=swap
+<link href="https://fonts.googleapismily=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap
 
 <style>
 
@@ -23,575 +22,356 @@ scroll-behavior:smooth;
 }
 
 body{
-
 font-family:'Montserrat',sans-serif;
-background:#f8fbff;
-color:white;
 overflow-x:hidden;
-
+background:#f8fbff;
 }
 
 section{
-
 min-height:100vh;
 position:relative;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-
+overflow:hidden;
 }
 
 h1,h2{
-
 font-family:'Cormorant Garamond',serif;
-
+font-weight:400;
 }
 
 /* SAVE THE DATE */
 
 .hero{
-
-background:url('save-date.jpg');
-background-size:cover;
-background-position:center;
-
+background:url('img/save-date.jpeg') center center/cover no-repeat;
 }
 
 .hero::before{
-
 content:'';
 position:absolute;
 inset:0;
-background:rgba(255,255,255,.15);
-
+background:rgba(255,255,255,.10);
+backdrop-filter:blur(1px);
 }
 
 .hero-content{
-
 position:relative;
 z-index:2;
-
+color:#333;
 }
 
 .hero h1{
-
 font-size:7rem;
 letter-spacing:8px;
-font-weight:300;
-color:#333;
-
+line-height:.95;
 }
 
 .hero .fecha{
-
-font-size:2.5rem;
 margin-top:40px;
-color:#444;
-
+font-size:2rem;
+letter-spacing:4px;
 }
 
 .hero .nombre{
-
-font-size:2rem;
-letter-spacing:10px;
 margin-top:60px;
-color:#444;
-
+font-size:2rem;
+letter-spacing:12px;
 }
 
 /* COUNTDOWN */
 
 .countdown{
-
 background:linear-gradient(
 180deg,
-#dcebfa,
-#bfdcf6
+#eaf4ff 0%,
+#d8e9ff 50%,
+#c8def9 100%
 );
-
-overflow:hidden;
-
-}
-
-.particles{
-
-position:absolute;
-inset:0;
-
-background-image:
-radial-gradient(white 1px, transparent 1px);
-
-background-size:35px 35px;
-
-animation:float 40s linear infinite;
-
-opacity:.7;
-
-}
-
-@keyframes float{
-
-from{
-transform:translateY(0);
-}
-
-to{
-transform:translateY(-200px);
-}
-
 }
 
 .countdown-content{
-
 position:relative;
-z-index:10;
-
+z-index:20;
+color:white;
 }
 
-.countdown h2{
-
-font-size:1.4rem;
+.countdown-title{
+font-size:14px;
 letter-spacing:6px;
-margin-bottom:20px;
-
+margin-bottom:25px;
 }
 
 #days{
-
-font-size:9rem;
 font-family:'Cormorant Garamond',serif;
-font-weight:500;
+font-size:10rem;
+line-height:1;
+text-shadow:
+0 0 20px rgba(255,255,255,.7),
+0 0 50px rgba(255,255,255,.4);
+}
+
+.days-label{
+margin-top:10px;
+letter-spacing:8px;
+}
+
+/* GLITTER ATRAS */
+
+.glitter-back{
+
+position:absolute;
+inset:0;
+z-index:5;
 
 }
 
-.label{
+.glitter-back span{
 
-font-size:1rem;
-letter-spacing:5px;
+position:absolute;
+background:white;
+border-radius:50%;
+
+animation:float1 linear infinite;
+
+}
+
+/* GLITTER ADELANTE */
+
+.glitter-front{
+
+position:absolute;
+inset:0;
+z-index:30;
+pointer-events:none;
+
+}
+
+.glitter-front span{
+
+position:absolute;
+background:white;
+border-radius:50%;
+
+animation:float2 linear infinite;
+
+}
+
+/* posiciones aleatorias */
+
+.glitter-back span:nth-child(1){
+width:5px;height:5px;
+left:12%;top:90%;
+animation-duration:22s;
+}
+
+.glitter-back span:nth-child(2){
+width:18px;height:18px;
+left:80%;top:80%;
+opacity:.3;
+filter:blur(3px);
+animation-duration:35s;
+}
+
+.glitter-back span:nth-child(3){
+width:8px;height:8px;
+left:30%;top:70%;
+animation-duration:25s;
+}
+
+.glitter-back span:nth-child(4){
+width:12px;height:12px;
+left:60%;top:85%;
+animation-duration:28s;
+}
+
+.glitter-back span:nth-child(5){
+width:4px;height:4px;
+left:45%;top:65%;
+animation-duration:18s;
+}
+
+.glitter-back span:nth-child(6){
+width:15px;height:15px;
+left:90%;top:45%;
+opacity:.4;
+filter:blur(4px);
+animation-duration:40s;
+}
+
+.glitter-front span:nth-child(1){
+width:6px;height:6px;
+left:22%;top:88%;
+animation-duration:17s;
+}
+
+.glitter-front span:nth-child(2){
+width:14px;height:14px;
+left:75%;top:92%;
+opacity:.7;
+animation-duration:26s;
+}
+
+.glitter-front span:nth-child(3){
+width:3px;height:3px;
+left:55%;top:72%;
+animation-duration:20s;
+}
+
+.glitter-front span:nth-child(4){
+width:9px;height:9px;
+left:18%;top:55%;
+animation-duration:24s;
+}
+
+.glitter-front span:nth-child(5){
+width:20px;height:20px;
+left:50%;top:95%;
+opacity:.2;
+filter:blur(5px);
+animation-duration:38s;
+}
+
+.glitter-front span:nth-child(6){
+width:7px;height:7px;
+left:86%;top:60%;
+animation-duration:21s;
+}
+
+@keyframes float1{
+
+0%{
+transform:translate(0,0) scale(1);
+opacity:.2;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translate(90px,-500px) scale(1.2);
+opacity:0;
+}
+
+}
+
+@keyframes float2{
+
+0%{
+transform:translate(0,0);
+opacity:.1;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translate(-60px,-600px);
+opacity:0;
+}
 
 }
 
 /* HISTORIA */
 
 .historia{
-
-background:#eef6ff;
-color:#333;
+background:#f7fbff;
 flex-direction:column;
-
+padding:60px 20px;
 }
 
 .historia h2{
-
 font-size:4rem;
-margin-bottom:40px;
-
+margin-bottom:30px;
+color:#3a4c6b;
 }
 
 .slider{
-
 display:flex;
 align-items:center;
 gap:20px;
-
 }
 
 .slider img{
-
 width:320px;
-height:480px;
-
+height:500px;
 object-fit:cover;
-
 border-radius:25px;
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.15);
-
+box-shadow:0 25px 50px rgba(0,0,0,.15);
 }
 
 .slider button{
-
 border:none;
-background:white;
 width:60px;
 height:60px;
 border-radius:50%;
+background:white;
 cursor:pointer;
-font-size:25px;
-
+font-size:24px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
 .dots{
-
-margin-top:30px;
-
+margin-top:25px;
 }
 
 .dot{
-
 width:12px;
 height:12px;
-background:#b4c7dd;
-
+background:#c6d6ea;
 display:inline-block;
-
 border-radius:50%;
-margin:5px;
-
+margin:6px;
 }
 
 .active{
-
-background:#7fa8d0;
-
+background:#7ea6cf;
 }
 
-/* BLOQUES CON IMAGEN */
+/* BLOQUES */
 
 .image-section{
-
 background-size:cover;
 background-position:center;
-
 }
 
 .image-section::before{
-
 content:'';
-
 position:absolute;
 inset:0;
-
-background:rgba(0,0,0,.35);
-
+background:rgba(0,0,0,.40);
 }
 
-.image-content{
-
+.content{
 position:relative;
 z-index:2;
-
+color:white;
+padding:30px;
 }
 
-.image-content h2{
-
+.content h2{
 font-size:4rem;
-
 }
 
-.image-content p{
-
+.content p{
 margin-top:20px;
 font-size:1.2rem;
-
+letter-spacing:2px;
 }
 
 .btn{
-
 display:inline-block;
-
 margin-top:30px;
-
-padding:14px 32px;
-
+padding:14px 30px;
 background:white;
-
 color:#222;
-
 text-decoration:none;
-
-border-radius:30px;
-
-font-size:.9rem;
-
-letter-spacing:2px;
-
+border-radius:40px;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
-@media(max-width:768px){
-
-.hero h1{
-
-font-size:4rem;
-
-}
-
-.hero .fecha{
-
-font-size:1.6rem;
-
-}
-
-#days{
-
-font-size:6rem;
-
-}
-
-.historia h2{
-
-font-size:2.6rem;
-
-}
-
-.slider img{
-
-width:260px;
-height:390px;
-
-}
-
-.image-content h2{
-
-font-size:2.5rem;
-
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<!-- SAVE THE DATE -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-<h1>SAVE<br>THE DATE</h1>
-
-<div class="fecha">
-27 · 12 · 26
-</div>
-
-<div class="nombre">
-JULIETA
-</div>
-
-</div>
-
-</section>
-
-<!-- CUENTA REGRESIVA -->
-
-<section class="countdown">
-
-<div class="particles"></div>
-
-<div class="countdown-content">
-
-<h2>
-CAMINO HACIA UN DÍA ÚNICO
-</h2>
-
-<div id="days">
-0
-</div>
-
-<div class="label">
-DÍAS
-</div>
-
-</div>
-
-</section>
-
-<!-- HISTORIA -->
-
-<section class="historia">
-
-<h2>
-UN RECORRIDO ESPECIAL
-</h2>
-
-<div class="slider">
-
-<button onclick="prevSlide()">
-❮
-</button>
-
-historia1.jpg
-
-<button onclick="nextSlide()">
-❯
-</button>
-
-</div>
-
-<div class="dots">
-
-<span class="dot active"></span>
-<span class="dot"></span>
-
-</div>
-
-</section>
-
-<!-- FECHA -->
-
-<section
-class="image-section"
-style="background-image:url('save-date.jpg')">
-
-<div class="image-content">
-
-<h2>
-27 DICIEMBRE 2026
-</h2>
-
-<p>
-DOMINGO
-</p>
-
-</div>
-
-</section>
-
-<!-- LUGAR -->
-
-<section
-class="image-section"
-style="background-image:url('salon.jpg')">
-
-<div class="image-content">
-
-<h2>
-LA CELEBRACIÓN
-</h2>
-
-<p>
-Próximamente más información
-</p>
-
-#
-VER UBICACIÓN
-</a>
-
-</div>
-
-</section>
-
-<!-- DRESS CODE -->
-
-<section
-class="image-section"
-style="background-image:url('dresscode.jpg')">
-
-<div class="image-content">
-
-<h2>
-DRESS CODE
-</h2>
-
-<p>
-ELEGANTE
-</p>
-
-</div>
-
-</section>
-
-<!-- RSVP -->
-
-<section
-class="image-section"
-style="background-image:url('rsvp.jpg')">
-
-<div class="image-content">
-
-<h2>
-CONFIRMACIÓN DE ASISTENCIA
-</h2>
-
-#
-CONFIRMAR
-</a>
-
-</div>
-
-</section>
-
-<script>
-
-/* CUENTA REGRESIVA */
-
-const eventDate = new Date(
-"December 27, 2026 21:00:00"
-).getTime();
-
-setInterval(()=>{
-
-const now = new Date().getTime();
-
-const distance = eventDate - now;
-
-const days = Math.floor(
-distance /
-(1000*60*60*24)
-);
-
-document.getElementById(
-"days"
-).innerHTML = days;
-
-},1000);
-
-/* SLIDER */
-
-const photos = [
-
-"historia1.jpg",
-"historia2.jpg"
-
-];
-
-let current = 0;
-
-function showSlide(){
-
-document.getElementById(
-"sliderImage"
-).src = photos[current];
-
-document.querySelectorAll('.dot')
-.forEach(dot=>dot.classList.remove('active'));
-
-document.querySelectorAll('.dot')
-[current]
-.classList.add('active');
-
-}
-
-function nextSlide(){
-
-current++;
-
-if(current >= photos.length)
-current = 0;
-
-showSlide();
-
-}
-
-function prevSlide(){
-
-current--;
-
-if(current < 0)
-current = photos.length - 1;
-
-showSlide();
-
-}
-
-</script>
-
-</body>
-</html>
+@media(max-
