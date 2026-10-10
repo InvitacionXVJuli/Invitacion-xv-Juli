@@ -1,1 +1,615 @@
 
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>XV Julieta</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family: "Cormorant Garamond", serif;
+
+    background:#f8f6f7;
+
+    color:#3f3f3f;
+
+    overflow-x:hidden;
+}
+
+section{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:80px 20px;
+}
+
+.hero{
+
+    background:
+    linear-gradient(
+        rgba(255,255,255,.25),
+        rgba(255,255,255,.25)
+    ),
+    url("save-the-date.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    color:#ffffff;
+}
+
+.hero h1{
+
+    font-size:70px;
+
+    letter-spacing:10px;
+
+    font-weight:300;
+}
+
+.hero h2{
+
+    font-size:30px;
+
+    letter-spacing:6px;
+
+    margin:10px 0;
+}
+
+.hero p{
+
+    font-size:24px;
+
+    letter-spacing:5px;
+}
+
+.scroll{
+
+    margin-top:50px;
+
+    font-size:14px;
+
+    opacity:.9;
+
+    letter-spacing:3px;
+}
+
+.titulo{
+
+    font-size:48px;
+
+    margin-bottom:25px;
+
+    color:#7a1520;
+}
+
+.subtitulo{
+
+    max-width:700px;
+
+    font-size:22px;
+
+    line-height:1.8;
+}
+
+.contador{
+
+    font-size:90px;
+
+    color:#7a1520;
+
+    font-weight:600;
+}
+
+.card{
+
+    width:min(900px,95%);
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:50px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.05);
+}
+
+.carrusel{
+
+    display:flex;
+
+    gap:20px;
+
+    overflow-x:auto;
+
+    width:100%;
+
+    margin-top:40px;
+
+    padding-bottom:10px;
+}
+
+.foto{
+
+    flex:0 0 auto;
+
+    width:250px;
+
+    height:350px;
+
+    border-radius:25px;
+
+    background:#e7e7e7;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#777;
+
+    font-size:18px;
+}
+
+.mini{
+
+    margin-top:20px;
+
+    color:#666;
+
+    font-size:20px;
+}
+
+.boton{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:15px 30px;
+
+    background:#7a1520;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:40px;
+}
+
+.formulario{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    width:min(500px,100%);
+}
+
+input,
+select,
+textarea{
+
+    padding:15px;
+
+    border-radius:12px;
+
+    border:1px solid #ddd;
+
+    font-size:16px;
+}
+
+textarea{
+
+    min-height:100px;
+}
+
+.footer{
+
+    background:white;
+}
+
+@media(max-width:768px){
+
+    .hero h1{
+
+        font-size:45px;
+    }
+
+    .hero h2{
+
+        font-size:22px;
+    }
+
+    .contador{
+
+        font-size:60px;
+    }
+
+    .titulo{
+
+        font-size:36px;
+    }
+
+    .subtitulo{
+
+        font-size:18px;
+    }
+
+    .foto{
+
+        width:220px;
+        height:300px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SAVE THE DATE -->
+
+<section class="hero">
+
+    <h1>SAVE</h1>
+
+    <h2>THE DATE</h2>
+
+    <p>27 · 12 · 26</p>
+
+    <br>
+
+    <h2>JULIETA</h2>
+
+    <div class="scroll">
+
+        DESLIZÁ PARA DESCUBRIR MÁS ↓
+
+    </div>
+
+</section>
+
+<!-- CUENTA REGRESIVA -->
+
+<section>
+
+    <h2 class="titulo">
+
+        Camino hacia un día único
+
+    </h2>
+
+    <div id="dias" class="contador">
+
+        0
+
+    </div>
+
+    <div class="subtitulo">
+
+        Cada día nos acerca un poco más
+        a celebrar juntos este momento tan especial.
+
+    </div>
+
+</section>
+
+<!-- HISTORIA -->
+
+<section>
+
+    <h2 class="titulo">
+
+        Un recorrido muy especial
+
+    </h2>
+
+    <div class="subtitulo">
+
+        Cada recuerdo forma parte del camino
+        que me trajo hasta este día.
+
+    </div>
+
+    <div class="carrusel">
+
+        <div class="foto">Foto infancia</div>
+
+        <div class="foto">Foto niñez</div>
+
+        <div class="foto">Foto adolescencia</div>
+
+        <div class="foto">Foto actual</div>
+
+        <div class="foto">Foto Book XV</div>
+
+    </div>
+
+</section>
+
+<!-- FECHA -->
+
+<section>
+
+    <div class="card">
+
+        <h2 class="titulo">
+
+            Cuándo
+
+        </h2>
+
+        <div class="subtitulo">
+
+            Domingo
+
+            <br><br>
+
+            27 de diciembre de 2026
+
+            <br><br>
+
+            13:00 hs
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- LUGAR -->
+
+<section>
+
+    <div class="card">
+
+        <h2 class="titulo">
+
+            Dónde
+
+        </h2>
+
+        <div class="subtitulo">
+
+            Salón XXXXX
+
+            <br><br>
+
+            Dirección completa
+
+        </div>
+
+        #
+
+            📍 Cómo llegar
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- DRESS CODE -->
+
+<section>
+
+    <div class="card">
+
+        <h2 class="titulo">
+
+            Dress Code
+
+        </h2>
+
+        <div class="subtitulo">
+
+            Elegante
+
+        </div>
+
+        <div class="mini">
+
+            Para acompañar la estética elegida para este día,
+            agradecemos evitar prendas en tonos celestes.
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- REGALOS -->
+
+<section>
+
+    <div class="card">
+
+        <h2 class="titulo">
+
+            Regalos
+
+        </h2>
+
+        <div class="subtitulo">
+
+            Tu presencia es el mejor regalo.
+
+            <br><br>
+
+            Si deseás acompañarme con un obsequio
+            para esta nueva etapa,
+            encontrarás aquí la información.
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- RSVP -->
+
+<section>
+
+    <div class="card">
+
+        <h2 class="titulo">
+
+            Confirmación de asistencia
+
+        </h2>
+
+        <br>
+
+        <div class="formulario">
+
+            <input placeholder="Nombre y Apellido">
+
+            <select>
+
+                <option>¿Asistís?</option>
+                <option>Sí</option>
+                <option>No</option>
+
+            </select>
+
+            <input placeholder="Cantidad de asistentes">
+
+            #
+
+                Confirmar asistencia
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- RESTRICCIONES -->
+
+<section>
+
+    <div class="card">
+
+        <h2 class="titulo">
+
+            Restricciones alimentarias
+
+        </h2>
+
+        <br>
+
+        <div class="formulario">
+
+            <select>
+
+                <option>Ninguna</option>
+                <option>Vegetariano</option>
+                <option>Vegano</option>
+                <option>Celíaco</option>
+                <option>Otra</option>
+
+            </select>
+
+            <textarea placeholder="Comentarios"></textarea>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GRACIAS -->
+
+<section class="footer">
+
+    <h2 class="titulo">
+
+        Gracias
+
+    </h2>
+
+    <div class="subtitulo">
+
+        Gracias por acompañarme
+        en este momento tan especial.
+
+        <br><br>
+
+        Los espero para celebrarlo juntos.
+
+        <br><br>
+
+        Julieta
+
+    </div>
+
+</section>
+
+<script>
+
+const fechaEvento =
+new Date("2026-12-27T13:00:00");
+
+function actualizarContador(){
+
+    const hoy =
+    new Date();
+
+    const diferencia =
+    fechaEvento - hoy;
+
+    const dias =
+    Math.ceil(
+        diferencia /
+        (1000*60*60*24)
+    );
+
+    document
+    .getElementById("dias")
+    .innerHTML =
+    dias;
+
+}
+
+actualizarContador();
+
+</script>
+
+</body>
+
+</html>
