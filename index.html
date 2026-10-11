@@ -11,6 +11,37 @@
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:Montserrat,sans-serif;background:#0f172a;color:#fff}section{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.hero{background:url("img/Savefondo.jpeg") center/cover no-repeat}.overlay{position:absolute;inset:0;background:rgba(0,0,0,.25)}.center{position:relative;z-index:2;text-align:center}.small{letter-spacing:8px}.name{font-family:'Cormorant Garamond',serif;font-size:clamp(70px,10vw,150px)}.btn{display:inline-block;margin:10px;padding:16px 34px;border-radius:40px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);color:#fff;text-decoration:none}.countdown{background:url("img/rsvp.jpg") center/cover no-repeat}.countdown:before{content:'';position:absolute;inset:0;background:rgba(20,30,50,.35)}#days{font-family:'Cormorant Garamond',serif;font-size:clamp(180px,30vw,420px);line-height:.8}.script{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:42px}.titleblock{text-align:center;position:relative;z-index:3}.slider-sec{background:#f8fbff;color:#5f7ea5;flex-direction:column}.slider-sec h2{margin:20px 0;font-size:32px}.slider{display:flex;align-items:center;gap:20px}.slider img{width:min(360px,80vw);height:520px;object-fit:cover;border-radius:24px}.slider button{width:56px;height:56px;border-radius:50%;border:none}.image{background-size:cover;background-position:center}.image:before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.35)}.content{position:relative;z-index:2;text-align:center;padding:30px}.content h2{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,8vw,100px)}.content p{font-size:22px;margin-top:14px}.gift,.thanks{background:url("img/rsvp.jpg") center/cover no-repeat}.gift:before,.thanks:before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.45)}
 </style>
 </head><body>
+  <section id="intro" class="intro">
+
+    <div class="overlay"></div>
+
+    <div id="bokeh"></div>
+
+    <div class="intro-content">
+
+        <h1 id="julieta">
+            Julieta
+        </h1>
+
+        <div id="fechaIntro">
+            27 de Diciembre de 2026
+        </div>
+
+        <div id="introButtons">
+
+            <button class="btn-intro">
+                ♪ Abrir con Música
+            </button>
+
+            #countdown
+                Abrir Invitación
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 <section class="hero"><div class="overlay"></div><div class="center"><div class="small">MIS XV AÑOS</div><div class="name">Julieta</div><div>27 de Diciembre de 2026</div><br><a class="btn" href="#countdown">Abrir Invitación</a><a class="btn">♪ Abrir con Música</a></div></section>
 <section id="countdown" class="countdown"><div class="titleblock"><div style="font-size:42px">CAMINO</div><div class="script">hacia un</div><div style="font-size:42px">DÍA ÚNICO</div><div id="days">0</div></div></section>
 <section class="slider-sec"><h2>#XVJuli</h2><div class="slider"><button onclick="prevSlide()">‹</button><img id="sliderImage" src="img/historia1.jpg"><button onclick="nextSlide()">›</button></div></section>
@@ -22,4 +53,223 @@
 <section class="thanks"><div class="content"><h2>GRACIAS</h2><p>Por acompañarme en este momento tan especial.</p><p>Julieta</p></div></section>
 <script>
 const photos=['img/historia1.jpg','img/historia2.jpg','img/historia3.jpg'];let current=0;function render(){document.getElementById('sliderImage').src=photos[current]}function nextSlide(){current=(current+1)%photos.length;render()}function prevSlide(){current=(current+photos.length-1)%photos.length;render()}const target=new Date('2026-12-27T13:00:00-03:00').getTime();setInterval(()=>{document.getElementById('days').innerText=Math.max(0,Math.floor((target-Date.now())/86400000));},1000);
-</script></body></html>
+</script>
+<script>
+
+/* BOKEH */
+
+const bokeh =
+document.getElementById("bokeh");
+
+for(let i=0;i<40;i++){
+
+    const circle =
+    document.createElement("div");
+
+    circle.className =
+    "bokeh-light";
+
+    const size =
+    Math.random()*120 + 30;
+
+    circle.style.width =
+    size + "px";
+
+    circle.style.height =
+    size + "px";
+
+    circle.style.left =
+    Math.random()*100 + "%";
+
+    circle.style.top =
+    Math.random()*100 + "%";
+
+    circle.style.animationDuration =
+    15 + Math.random()*25 + "s";
+
+    bokeh.appendChild(circle);
+
+}
+
+/* TIMELINE */
+
+setTimeout(()=>{
+
+    document.getElementById("julieta")
+    .animate([
+
+        {
+            opacity:0,
+            filter:'blur(20px)',
+            transform:'scale(.6)'
+        },
+
+        {
+            opacity:1,
+            filter:'blur(0px)',
+            transform:'scale(1)'
+        }
+
+    ],{
+
+        duration:1800,
+        fill:'forwards'
+
+    });
+
+},2000);
+
+setTimeout(()=>{
+
+    document.getElementById(
+    "fechaIntro"
+    ).style.opacity = 1;
+
+},4000);
+
+setTimeout(()=>{
+
+    document.getElementById(
+    "introButtons"
+    ).style.opacity = 1;
+
+},4000);
+
+</script>
+</body>
+.intro{
+
+    min-height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    url('img/Savefondo.jpeg');
+
+    background-size:cover;
+    background-position:center;
+
+}
+
+.overlay{
+
+    position:absolute;
+    inset:0;
+
+    background:
+    rgba(255,255,255,.08);
+
+}
+
+.intro-content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+#julieta{
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:#233A5A;
+
+    font-size:
+    clamp(90px,13vw,180px);
+
+    opacity:0;
+
+    filter:blur(20px);
+
+    transform:
+    scale(.6)
+    translateZ(-100px);
+
+}
+
+#fechaIntro{
+
+    color:#233A5A;
+
+    letter-spacing:4px;
+
+    font-size:18px;
+
+    margin-top:15px;
+
+    opacity:0;
+
+}
+
+#introButtons{
+
+    margin-top:30px;
+
+    opacity:0;
+
+}
+
+.btn-intro{
+
+    border:none;
+
+    padding:14px 28px;
+
+    margin:8px;
+
+    border-radius:40px;
+
+    background:
+    rgba(255,255,255,.75);
+
+    color:#233A5A;
+
+    text-decoration:none;
+
+    display:inline-block;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+}
+.bokeh-light{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.5);
+
+    filter:blur(18px);
+
+    animation:
+    floating linear infinite;
+
+}
+
+@keyframes floating{
+
+0%{
+
+transform:
+translateY(0);
+
+}
+
+100%{
+
+transform:
+translateY(-400px);
+
+}
+
+}</html>
