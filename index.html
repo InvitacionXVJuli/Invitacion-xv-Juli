@@ -174,8 +174,7 @@ const photos=['img/historia1.jpg','img/historia2.jpg','img/historia3.jpg'];let c
 
 /* BOKEH */
 
-const bokeh =
-document.getElementById("bokeh");
+const bokeh = document.getElementById("bokeh");
 
 for(let i=0;i<40;i++){
 
@@ -206,6 +205,54 @@ for(let i=0;i<40;i++){
     bokeh.appendChild(circle);
 
 }
+
+/* Aparición */
+
+setTimeout(()=>{
+
+ document.get*lementById("misxv")
+ .style.opacit* = 1;
+
+},1000);
+
+setTimeout(()=>{
+* document.getElementById("julieta"*
+ .animate(
+
+ [
+
+   {
+     opacity:0,
+     filter:'blur(20px)',
+     *ransform:'scale(.6)'
+   },
+
+   {
+ *   opacity:1,
+     filter:'blur(0p*)',
+     transform:'scale(1)'
+   }*
+ ],
+
+ {
+   duration:1800,
+   fill*'forwards'
+ });
+
+},2000);
+
+setTime*ut(()=>{
+
+ document.getElementById*"fechaIntro")
+ .style.opacity = 1;*
+},4000);
+
+setTimeout(()=>{
+
+ docu*ent.getElementById("introButtons")* .style.opacity = 1;
+
+},4000);
+```*
 
 /* TIMELINE */
 setTimeout(()=>{
