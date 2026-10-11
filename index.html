@@ -7,58 +7,91 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<style>.intro{
+<style>
+.intro{
     min-height:100vh;
     position:relative;
     overflow:hidden;
     background:url('img/Savefondo.jpeg') center center/cover no-repeat;
 }
 
-.intro-content{
-    position:relative;
-    z-index:5;
-    text-align:center;
-}
-
-#julieta{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(90px,13vw,180px);
-    color:#233A5A;
-    opacity:0;
-    filter:blur(20px);
-}
-    radial-gradient(
-circle,
-rgba(255,255,255,.25),
-transparent 70%
-)
-
-#fechaIntro{
-    color:#233A5A;
-    opacity:0;
-    margin-top:15px;
-    font-size:22px;
-}
-
-#introButtons{
-    margin-top:25px;
-    opacity:0;
-}
-
-.btn-intro{
-    display:inline-block;
-    margin:10px;
-    padding:14px 30px;
-    border-radius:40px;
-    text-decoration:none;
-    background:rgba(255,255,255,.7);
-    color:#233A5A;
-    font-weight:500;
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,.08);
 }
 
 #bokeh{
     position:absolute;
     inset:0;
+}
+
+.intro-content{
+    position:relative;
+    z-index:5;
+    width:100%;
+    text-align:center;
+}
+
+#misxv{
+    opacity:0;
+    color:#233A5A;
+    font-size:18px;
+    letter-spacing:8px;
+    margin-bottom:40px;
+    font-weight:500;
+}
+
+#julieta{
+    font-family:'Cormorant Garamond',serif;
+    color:#233A5A;
+    font-size:clamp(90px,13vw,180px);
+    opacity:0;
+
+    text-shadow:
+    0 0 10px rgba(35,58,90,.15),
+    0 0 25px rgba(35,58,90,.10),
+    0 0 40px rgba(255,255,255,.20);
+
+    filter:blur(20px);
+}
+
+#fechaIntro{
+    color:#233A5A;
+    letter-spacing:4px;
+    font-size:22px;
+    margin-top:15px;
+    opacity:0;
+}
+
+#introButtons{
+    margin-top:35px;
+    opacity:0;
+}
+
+.btn-intro{
+    width:280px;
+    height:60px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin:12px auto;
+
+    border:none;
+    border-radius:50px;
+
+    background:rgba(255,255,255,.78);
+
+    color:#233A5A;
+
+    text-decoration:none;
+
+    font-size:20px;
+    font-weight:500;
+
+    backdrop-filter:blur(10px);
 }
 
 .bokeh-light{
@@ -79,6 +112,7 @@ transparent 70%
         transform:translateY(-400px);
     }
 
+}
 }
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:Montserrat,sans-serif;background:#0f172a;color:#fff}section{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.hero{background:url("img/Savefondo.jpeg") center/cover no-repeat}.overlay{position:absolute;inset:0;background:rgba(0,0,0,.25)}.center{position:relative;z-index:2;text-align:center}.small{letter-spacing:8px}.name{font-family:'Cormorant Garamond',serif;font-size:clamp(70px,10vw,150px)}.btn{display:inline-block;margin:10px;padding:16px 34px;border-radius:40px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);color:#fff;text-decoration:none}.countdown{background:url("img/rsvp.jpg") center/cover no-repeat}.countdown:before{content:'';position:absolute;inset:0;background:rgba(20,30,50,.35)}#days{font-family:'Cormorant Garamond',serif;font-size:clamp(180px,30vw,420px);line-height:.8}.script{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:42px}.titleblock{text-align:center;position:relative;z-index:3}.slider-sec{background:#f8fbff;color:#5f7ea5;flex-direction:column}.slider-sec h2{margin:20px 0;font-size:32px}.slider{display:flex;align-items:center;gap:20px}.slider img{width:min(360px,80vw);height:520px;object-fit:cover;border-radius:24px}.slider button{width:56px;height:56px;border-radius:50%;border:none}.image{background-size:cover;background-position:center}.image:before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.35)}.content{position:relative;z-index:2;text-align:center;padding:30px}.content h2{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,8vw,100px)}.content p{font-size:22px;margin-top:14px}.gift,.thanks{background:url("img/rsvp.jpg") center/cover no-repeat}.gift:before,.thanks:before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.45)}
 #misxv{
@@ -222,144 +256,4 @@ setTimeout(()=>{
 
 </script>
 </body>
-.intro{
-
-    min-height:100vh;
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:
-    url('img/Savefondo.jpeg');
-
-    background-size:cover;
-    background-position:center;
-
-}
-
-.overlay{
-
-    position:absolute;
-    inset:0;
-
-    background:
-    rgba(255,255,255,.08);
-
-}
-
-.intro-content{
-
-    position:relative;
-
-    z-index:5;
-
-    width:100%;
-
-    text-align:center;
-
-}
-
-#julieta{
-
-    font-family:'Cormorant Garamond',serif;
-
-    color:#233A5A;
-
-    font-size:
-    clamp(90px,13vw,180px);
-
-    opacity:0;
-
-    text-shadow:
-0 0 10px rgba(35,58,90,.15),
-0 0 25px rgba(35,58,90,.10),
-0 0 40px rgba(255,255,255,.20);
-    
-    filter:blur(20px);
-
-    transform:
-    scale(.6)
-    translateZ(-100px);
-
-}
-
-#fechaIntro{
-
-    color:#233A5A;
-
-    letter-spacing:4px;
-
-    font-size:18px;
-
-    margin-top:15px;
-
-    opacity:0;
-
-}
-
-#introButtons{
-
-    margin-top:30px;
-
-    opacity:0;
-
-}
-
-.btn-intro{
-
-    border:none;
-
-    padding:14px 28px;
-
-    margin:8px;
-
-    border-radius:40px;
-
-    background:
-    rgba(255,255,255,.75);
-
-    color:#233A5A;
-
-    text-decoration:none;
-
-    display:inline-block;
-
-    cursor:pointer;
-
-    backdrop-filter:blur(10px);
-
-}
-.bokeh-light{
-
-    position:absolute;
-
-    border-radius:50%;
-
-    background:
-    rgba(255,255,255,.5);
-
-    filter:blur(18px);
-
-    animation:
-    floating linear infinite;
-
-}
-
-@keyframes floating{
-
-0%{
-
-transform:
-translateY(0);
-
-}
-
-100%{
-
-transform:
-translateY(-400px);
-
-}
-
-}</html>
+</html>
