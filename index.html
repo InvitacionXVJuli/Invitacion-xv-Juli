@@ -206,46 +206,43 @@ for(let i=0;i<40;i++){
 
 }
 
-/* Aparición */
+/* APARICIÓN */
 
-setTimeout(()=>{
+set*imeout(() => {
+    document*getElementById("misxv*).style.opacity = "1";
+}, 1000);
 
- document.get*lementById("misxv")
- .style.opacit* = 1;
+*etTimeout(() => {
 
-},1000);
+    document.ge*ElementById("julieta")
+    .animat*(
+        [
+            {
+        *       opacity: 0,
+               *filter: "blur(20px)",
+            *   transform: "scale(.6)"
+        *   },
+            {
+              * opacity: 1,
+                filte*: "blur(0px)",
+                tra*sform: "scale(1)"
+            }
+  *     ],
+        {
+            dura*ion: 1800,
+            fill: "forw*rds"
+        }
+    );
 
-setTimeout(()=>{
-* document.getElementById("julieta"*
- .animate(
+}, 2000);
 
- [
+*etTimeout(() => {
+    document.get*lementById("fechaIntro").style.opa*ity = "1";
+}, 4000);
 
-   {
-     opacity:0,
-     filter:'blur(20px)',
-     *ransform:'scale(.6)'
-   },
-
-   {
- *   opacity:1,
-     filter:'blur(0p*)',
-     transform:'scale(1)'
-   }*
- ],
-
- {
-   duration:1800,
-   fill*'forwards'
- });
-
-},2000);
-
-setTime*ut(()=>{
-
- document.getElementById*"fechaIntro")
- .style.opacity = 1;*
-},4000);
+setTimeout((* => {
+    document.getElementById(*introButtons").style.opacity = "1"*
+}, 4000);
 
 setTimeout(()=>{
 
