@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  XV JULIETA · index.html · VERSIÓN 3
+  XV JULIETA · index.html · VERSIÓN 4
   Imágenes (carpeta img/): Savefondo.jpeg (intro), dresscode.jpg (cuenta regresiva y dress code), rsvp.jpg (fecha), salon.jpg, historia1.jpg, historia2.jpg, historia3.jpg
   Fotos de XV Juli: reemplazá los archivos historiaN.jpg o editá la lista FOTOS al final del script.
   Fuentes propias (opcional): fonts/slight.woff2 y fonts/the-seasons.woff2 (si no están, se usan Pinyon Script y Cormorant Garamond).
@@ -117,7 +117,9 @@
     .countdown .glass-panel { width: min(100%, 520px); min-height: 0; margin: 34px auto 0; }
     .countdown-number { margin: 0; font-family: var(--f-batang); font-weight: 400; font-size: clamp(88px, 22vw, 160px); line-height: 1; letter-spacing: .02em; }
     .cd-days { margin: 4px 0 0; font-family: var(--f-bask); font-size: clamp(13px, 2.4vw, 18px); letter-spacing: .5em; text-indent: .5em; }
-    .cd-time { display: inline-block; margin: 22px 0 0; padding: 10px 26px; border: 1px solid rgba(255,255,255,.55); border-radius: 8px; background: rgba(255,255,255,.14); font-family: var(--f-batang); font-size: clamp(20px, 4.4vw, 30px); letter-spacing: .14em; text-indent: .14em; }
+    .cd-time { display: inline-flex; align-items: flex-start; gap: clamp(6px, 2vw, 12px); margin: 22px 0 0; padding: 12px clamp(16px, 5vw, 28px) 10px; border: 1px solid rgba(255,255,255,.55); border-radius: 8px; background: rgba(255,255,255,.14); font-family: var(--f-batang); font-size: clamp(20px, 4.4vw, 30px); line-height: 1.2; font-variant-numeric: tabular-nums; }
+    .cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 2.2em; }
+    .cd-unit small { margin-top: 5px; font-family: var(--f-bask); font-size: clamp(8px, 1.9vw, 11px); letter-spacing: .18em; text-indent: .18em; line-height: 1; }
 
     /* 3. HISTORIA · estilo Instagram */
     .light-section { color: #34516f; background: linear-gradient(150deg, #f8fbff, #d9e8f6 55%, #f8fbff); }
@@ -177,6 +179,8 @@
     .thanks-copy { max-width: 560px; margin: 0 auto; font-family: "Cormorant Garamond", serif; font-size: clamp(22px, 4.6vw, 32px); line-height: 1.6; }
     .thanks-with { margin: 34px 0 0; font-family: "Cormorant Garamond", serif; font-style: italic; font-size: clamp(24px, 5vw, 34px); }
     .thanks-juli { margin: -6px 0 0; font-family: var(--f-script); font-size: clamp(96px, 26vw, 190px); line-height: 1; text-shadow: 0 6px 24px rgba(8,26,61,.35); }
+    .thanks-section { background: linear-gradient(325deg, #7899b8, #2c4865 70%, #8aaac6); }
+    .thanks-cta { display: inline-block; margin-top: clamp(56px, 12vh, 100px); color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 9px; }
     footer { padding: 24px 16px; text-align: center; background: #243e59; color: rgba(255,255,255,.75); font-family: var(--f-bask); font-size: 10px; letter-spacing: .24em; }
 
     /* ANIMACIONES */
@@ -193,6 +197,8 @@
       section.page-section { min-height: 78svh; padding: 72px 18px; }
       .section-copy { font-size: 13px; }
     }
+    /* Secciones que ocupan toda la pantalla del celular (igual que la portada) */
+    section.page-section.full { min-height: 100vh; min-height: 100svh; }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
     }
@@ -221,7 +227,7 @@
 
   <main id="invitationContent">
     <!-- 2. CUENTA REGRESIVA -->
-    <section class="page-section countdown" id="countdown">
+    <section class="page-section full countdown" id="countdown">
       <div class="glitter-layer" id="glints" aria-hidden="true"></div>
       <div class="section-inner">
         <h2 class="cd-title">Camino</h2>
@@ -230,13 +236,37 @@
         <div class="glass-panel">
           <div class="countdown-number" id="days" aria-live="off">--</div>
           <p class="cd-days">Días</p>
-          <p class="cd-time" id="hm">--:-- hs</p>
+          <div class="cd-time" role="timer" aria-label="Tiempo restante">
+            <div class="cd-unit"><span id="hh">--</span><small>horas</small></div>
+            <span aria-hidden="true">:</span>
+            <div class="cd-unit"><span id="mm">--</span><small>min</small></div>
+            <span aria-hidden="true">:</span>
+            <div class="cd-unit"><span id="ss">--</span><small>seg</small></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. HISTORIA · XV Juli (carrusel tipo Instagram) -->
-    <section class="page-section light-section" id="historia">
+    <!-- 3. FECHA Y HORARIO -->
+    <section class="page-section image-section date-section" id="fecha">
+      <div class="section-inner glass-panel">
+        <h2 class="section-title"><span class="num">27</span> DICIEMBRE</h2>
+        <p class="section-copy">DOMINGO · DE 13:00 A 21:00 HS</p>
+      </div>
+    </section>
+
+    <!-- 4. LUGAR -->
+    <section class="page-section full image-section venue-section" id="lugar">
+      <div class="section-inner glass-panel">
+        <p class="eyebrow">NOS ENCONTRAMOS EN</p>
+        <h2 class="section-title">Sanfiz Eventos</h2>
+        <p class="section-copy venue-address">Av. Gral. San Martín 1577<br>Ramos Mejía, Buenos Aires</p>
+        <a class="button button-primary" href="https://maps.app.goo.gl/5nBubqjtMC4ZPi7L6?g_st=aw" target="_blank" rel="noopener noreferrer">Ver ubicación ↗</a>
+      </div>
+    </section>
+
+    <!-- 4. FOTOS · XV Juli (carrusel tipo Instagram) -->
+    <section class="page-section full light-section" id="historia">
       <div class="section-inner">
         <article class="ig" aria-label="Fotos de Julieta">
           <header class="ig-head">
@@ -253,25 +283,7 @@
       </div>
     </section>
 
-    <!-- 4. FECHA Y HORARIO -->
-    <section class="page-section image-section date-section" id="fecha">
-      <div class="section-inner glass-panel">
-        <h2 class="section-title"><span class="num">27</span> DICIEMBRE</h2>
-        <p class="section-copy">DOMINGO · DE 13:00 A 21:00 HS</p>
-      </div>
-    </section>
-
-    <!-- 5. LUGAR -->
-    <section class="page-section image-section venue-section" id="lugar">
-      <div class="section-inner glass-panel">
-        <p class="eyebrow">NOS ENCONTRAMOS EN</p>
-        <h2 class="section-title">Sanfiz Eventos</h2>
-        <p class="section-copy venue-address">Av. Gral. San Martín 1577<br>Ramos Mejía, Buenos Aires</p>
-        <a class="button button-primary" href="https://maps.app.goo.gl/5nBubqjtMC4ZPi7L6?g_st=aw" target="_blank" rel="noopener noreferrer">Ver ubicación ↗</a>
-      </div>
-    </section>
-
-    <!-- 6. DRESS CODE -->
+    <!-- 6. DRESS CODE (ver orden: fecha, lugar, fotos, dress code, regalos, gracias, confirmación) -->
     <section class="page-section image-section dress-section" id="dresscode">
       <div class="section-inner glass-panel">
         <h2 class="section-title dress-title">Dress code</h2>
@@ -293,7 +305,16 @@
       </div>
     </section>
 
-    <!-- 8. CONFIRMACIÓN DE ASISTENCIA -->
+    <!-- GRACIAS (con enlace a la confirmación) -->
+    <section class="page-section thanks-section" id="gracias">
+      <div class="section-inner">
+        <p class="thanks-copy">Gracias por acompañarme y compartir conmigo un momento tan especial.</p>
+        <p class="thanks-with">Con cariño</p>
+        <p class="thanks-juli">Juli</p>
+        <a class="thanks-copy thanks-cta" href="#rsvp">No olvides confirmar tu asistencia <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+    <!-- ÚLTIMA SECCIÓN: CONFIRMACIÓN DE ASISTENCIA -->
     <section class="page-section rsvp-section" id="rsvp">
       <div class="section-inner">
         <p class="eyebrow">QUIERO COMPARTIRLO CON VOS</p>
@@ -330,17 +351,9 @@
       </div>
     </section>
 
-    <!-- 9. GRACIAS -->
-    <section class="page-section thanks-section" id="gracias">
-      <div class="section-inner">
-        <p class="thanks-copy">Gracias por acompañarme y compartir conmigo un momento tan especial.</p>
-        <p class="thanks-with">Con cariño</p>
-        <p class="thanks-juli">Juli</p>
-      </div>
-    </section>
   </main>
 
-  <footer>XV JULIETA · 27.12.2026</footer>
+  <footer>XV JULIETA · 27-12-2026</footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -396,12 +409,14 @@
       const pad = (n) => String(n).padStart(2, "0");
       function updateCountdown() {
         const r = Math.max(0, target - Date.now());
-        const d = Math.floor(r / 864e5), h = Math.floor(r % 864e5 / 36e5), m = Math.floor(r % 36e5 / 6e4);
+        const d = Math.floor(r / 864e5), h = Math.floor(r % 864e5 / 36e5), m = Math.floor(r % 36e5 / 6e4), sec = Math.floor(r % 6e4 / 1e3);
         $("days").textContent = String(d);
-        $("hm").textContent = `${pad(h)}:${pad(m)} hs`;
+        $("hh").textContent = pad(h);
+        $("mm").textContent = pad(m);
+        $("ss").textContent = pad(sec);
       }
       updateCountdown();
-      setInterval(updateCountdown, 15000);
+      setInterval(updateCountdown, 1000);
 
       /* ---------- XV Juli: carrusel infinito ---------- */
       // Para cambiar las fotos: reemplazá los archivos o editá esta lista (se pueden agregar o quitar).
