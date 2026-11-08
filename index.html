@@ -146,7 +146,7 @@
        Para volver al recorte anterior, cambiá "contain" por "cover" en .venue-bg::after */
     .venue-bg { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: #243e59; }
     .venue-bg::before { content: ""; position: absolute; inset: -6%; background: url("img/salon.jpg") center / cover no-repeat; filter: blur(20px); }
-    .venue-bg::after { content: ""; position: absolute; inset: 0; background: url("img/salon.jpg") center top / contain no-repeat; }
+    .venue-bg::after { content: ""; position: absolute; inset: 0; background: url("img/salon.jpg") center top / cover no-repeat; }
     .glass-panel {
       width: min(100%, 720px); min-height: clamp(300px, 50vh, 380px); margin: auto; padding: clamp(26px, 6vw, 54px);
       display: flex; flex-direction: column; justify-content: center; align-items: center;
