@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <!--
-  XV JULIETA · index.html · VERSIÓN 5
+  XV JULIETA · index.html · VERSIÓN 6
   Imágenes (carpeta img/): Savefondo.jpeg (intro), rsvp.jpg (fondo continuo de cuenta regresiva + fecha), dresscode.jpg (fondo continuo de dress code + regalos + gracias), salon.jpg, historia1.jpg, historia2.jpg, historia3.jpg
+  Vista previa de WhatsApp: img/preview.jpg (1200x630). Música: audio/musica.mp3.
+  IMPORTANTE: en las etiquetas og:url y og:image reemplazá REEMPLAZAR-NOMBRE-REPO por el nombre de tu repositorio (ver la barra del navegador).
   Fotos de XV Juli: sección en pausa. Para reactivarla, cambiá MOSTRAR_FOTOS a true en el script (y reemplazá historiaN.jpg o editá la lista FOTOS).
   Fuentes propias (opcional): fonts/slight.woff2 y fonts/the-seasons.woff2 (si no están, se usan Pinyon Script y Cormorant Garamond).
 -->
@@ -10,7 +12,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#dfe5ee">
-  <meta name="description" content="La invitación a los XV de Julieta. 27 de diciembre de 2026.">
+  <meta name="description" content="Te invito a celebrar mis XV. 27 de diciembre de 2026 · Sanfiz Eventos, Ramos Mejía.">
+  <!-- Vista previa al compartir por WhatsApp / redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="XV Julieta">
+  <meta property="og:title" content="Los XV de Julieta ✨">
+  <meta property="og:description" content="27 de diciembre de 2026 · Sanfiz Eventos, Ramos Mejía. Te invito a celebrar conmigo.">
+  <meta property="og:url" content="https://invitacionxvjuli.github.io/REEMPLAZAR-NOMBRE-REPO/">
+  <meta property="og:image" content="https://invitacionxvjuli.github.io/REEMPLAZAR-NOMBRE-REPO/img/preview.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mis XV años · Julieta · 27 de diciembre de 2026">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Los XV de Julieta</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,11 +157,7 @@
     /* 4-6. IMÁGENES */
     .image-section { color: #fff; background-position: center; background-size: cover; background-repeat: no-repeat; }
     .image-section::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(16,35,56,.26), rgba(16,35,56,.68)); }
-    /* Lugar: la foto del salón se ve completa arriba y se extiende difuminada hacia abajo.
-       Para volver al recorte anterior, cambiá "contain" por "cover" en .venue-bg::after */
-    .venue-bg { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: #243e59; }
-    .venue-bg::before { content: ""; position: absolute; inset: -6%; background: url("img/salon.jpg") center / cover no-repeat; filter: blur(20px); }
-    .venue-bg::after { content: ""; position: absolute; inset: 0; background: url("img/salon.jpg") center top / cover no-repeat; }
+    .venue-section { background-image: url("img/salon.jpg"); }
     .glass-panel {
       width: min(100%, 720px); min-height: clamp(300px, 50vh, 380px); margin: auto; padding: clamp(26px, 6vw, 54px);
       display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -262,7 +273,6 @@
 
     <!-- 4. LUGAR -->
     <section class="page-section full image-section venue-section" id="lugar">
-      <div class="venue-bg" aria-hidden="true"></div>
       <div class="section-inner glass-panel">
         <p class="eyebrow">NOS ENCONTRAMOS EN</p>
         <h2 class="section-title">Sanfiz Eventos</h2>
@@ -403,15 +413,32 @@
       $("openInvitation").addEventListener("click", () => {
         document.documentElement.classList.remove("locked");
         document.body.classList.remove("locked");
-        window.scrollTo({ top: $("countdown").offsetTop, behavior: "instant" });
+        // getBoundingClientRect funciona aunque la sección esté dentro de un contenedor con fondo continuo (offsetTop no)
+        requestAnimationFrame(() => {
+          const top = $("countdown").getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({ top, behavior: "instant" });
+        });
       });
 
-      /* ---------- Música (requiere audio/musica.mp3) ---------- */
+      /* ---------- Música (archivo: audio/musica.mp3) ---------- */
+      const MUSICA_INICIO = 0;     // segundo desde el que arranca la primera vez (ej: 15)
+      const MUSICA_VOLUMEN = 0.8;  // de 0 a 1 (en iPhone el volumen lo controla el celular)
       const musicButton = $("musicButton"), music = $("invitationMusic");
+      let primeraVez = true;
+      function fadeIn() {
+        let v = 0;
+        const t = setInterval(() => { v = Math.min(MUSICA_VOLUMEN, v + 0.05); music.volume = v; if (v >= MUSICA_VOLUMEN) clearInterval(t); }, 120);
+      }
       musicButton.addEventListener("click", async () => {
         if (music.paused) {
-          try { await music.play(); musicButton.textContent = "♫ Pausar música"; musicButton.setAttribute("aria-pressed", "true"); }
-          catch (e) { musicButton.textContent = "No se encontró el audio"; musicButton.setAttribute("aria-pressed", "false"); }
+          try {
+            music.volume = 0;
+            await music.play();
+            if (primeraVez && MUSICA_INICIO > 0) music.currentTime = MUSICA_INICIO;
+            primeraVez = false;
+            fadeIn();
+            musicButton.textContent = "♫ Pausar música"; musicButton.setAttribute("aria-pressed", "true");
+          } catch (e) { musicButton.textContent = "No se encontró el audio"; musicButton.setAttribute("aria-pressed", "false"); }
         } else { music.pause(); musicButton.textContent = "♫ Activar música"; musicButton.setAttribute("aria-pressed", "false"); }
       });
 
